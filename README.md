@@ -2,7 +2,7 @@
 
 **[Chengbo Yuan](https://michaelyuancb.github.io/), [Rui Zhou](https://zhourui9813.github.io/)^, [Mengzhen Liu](https://scholar.google.com/citations?hl=zh-CN&user=AUVUNusAAAAJ)^, [Yingdong Hu](https://yingdong-hu.github.io/), [Shengjie Wang](https://shengjiewang-jason.github.io/), [Li Yi](), [Chuan Wen](https://alvinwen428.github.io/), [Shanghang Zhang](https://www.shanghangzhang.com/), [Yang Gao](https://yang-gao.weebly.com/)*.**
 
-**[[Project Website](https://motiontrans.github.io/)] [[Arxiv]()] [[Dataset](https://huggingface.co/datasets/michaelyuanqwq/motiontrans)] [[Pi0-VLA Code]()] [[BibTex](#jump)]**
+**[[Project Website](https://motiontrans.github.io/)] [[Arxiv]()] [[Dataset](https://huggingface.co/datasets/michaelyuanqwq/motiontrans)] [[Pi0-VLA Code](https://github.com/michaelyuancb/motiontrans-pi0)] [[BibTex](#jump)]**
 
 ^ Indicates equal contribution. * Corresponding author.
 
