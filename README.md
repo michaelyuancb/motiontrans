@@ -10,7 +10,7 @@
 
 ## Introduction
 
-MotionTrans is the first framework that achieve explicit end-to-end human-to-robot motion transfer, established motion-level policy learning from human data. By cotraining on 15 robot tasks and 15 human tasks, we enable both [Diffusion Policy](https://github.com/real-stanford/diffusion_policy) and [$\pi_0$-VLA](https://github.com/Physical-Intelligence/openpi) to directly perform 10+ human tasks. Here we open-source all codes of the framework, including 
+MotionTrans is the first framework that achieve explicit end-to-end human-to-robot motion transfer, established motion-level policy learning from human data. By cotraining on 15 robot tasks and 15 human tasks, we enable both [Diffusion Policy](https://github.com/real-stanford/diffusion_policy) and [Pi0-VLA](https://github.com/Physical-Intelligence/openpi) to directly perform 10+ human tasks. Here we open-source all codes of the framework, including 
  - (1) Robot teleoperation.
  - (2) Human data collection.
  - (3) MotionTrans Dataset.
@@ -88,7 +88,7 @@ And then follow the instruction in your terminal to control the replay process.
 
 ## (6) Policy Human-Robot Cotraining / Finetuning
 
-We provide [Diffusion Policy](https://arxiv.org/abs/2303.04137) codebase in this repository. For [$\pi_0$-VLA](https://arxiv.org/abs/2410.24164), please refer to the [MotionTrans-$\pi_0$-VLA](https://github.com/michaelyuancb/motiontrans-pi0). 
+We provide [Diffusion Policy](https://arxiv.org/abs/2303.04137) codebase in this repository. For [Pi0-VLA](https://arxiv.org/abs/2410.24164), please refer to the [MotionTrans-Pi0-VLA](https://github.com/michaelyuancb/motiontrans-pi0). 
 
 For human-robot multi-task cotraining (zero-shot setting in the paper), run:
 ```
@@ -113,11 +113,11 @@ bash scripts/dp_infer.sh
 ```
 and follow the instruction in your terminal to control the robot execution. We note that the parameters and tricks for action-chunk-based inference affect the performance a lot. Please refer to the comments in `scripts/dp_infer.sh` for parameter details. You should especially pay attention to `robot_action_horizon`, `robot_steps_per_inference`, `gripper_action_horizon`, and `gripper_steps_per_inference`, which should be set carefully to get a balance between inference horizon and action jittering (mode discussion and potential improvement could refer to blog of [Real-Time Action Chunking](https://www.physicalintelligence.company/research/real_time_chunking)). Current parameter is optimized for our setup, and you may need to tune it for your own setup.
 
-To deploy trained **$\pi_0$-VLA** on the robot, first start the policy client (refer to [MotionTrans-$\pi_0$-VLA](https://github.com/michaelyuancb/motiontrans-pi0)), and then run:
+To deploy trained **Pi0-VLA** on the robot, first start the policy client (refer to [MotionTrans-Pi0-VLA](https://github.com/michaelyuancb/motiontrans-pi0)), and then run:
 ```
 bash scripts/pi0_infer.sh
 ```
-and follow the instruction in your terminal to control the robot execution. The scripts above start a server to communicate with the policy client, and then control the robot execution. More details could refer to [official $\pi_0$-VLA repository](https://github.com/Physical-Intelligence/openpi).
+and follow the instruction in your terminal to control the robot execution. The scripts above start a server to communicate with the policy client, and then control the robot execution. More details could refer to [official Pi0-VLA repository](https://github.com/Physical-Intelligence/openpi).
 
 ## Acknowledgment
 
