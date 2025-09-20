@@ -1,0 +1,8 @@
+numpy
+scipy
+keyboard
+imageio
+imageio[ffmpeg]
+viser
+pyliblzfse
+zmq

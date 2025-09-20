@@ -1,0 +1,30 @@
+# Build and Release Folders
+bin-debug/
+bin-release/
+[Oo]bj/
+[Bb]in/
+
+# Other files and folders
+.settings/
+
+# Executables
+*.swf
+*.air
+*.ipa
+
+
+QuestRecorder_Unity/Library/
+QuestRecorder_Unity/Logs/
+QuestRecorder_Unity/Temp/
+QuestRecorder_Unity/.vs/
+
+QuestTeleop_Unity/Library/
+QuestTeleop_Unity/Logs/
+QuestTeleop_Unity/Temp/
+QuestTeleop_Unity/.vs/
+
+data/
+
+# Project files, i.e. `.project`, `.actionScriptProperties` and `.flexProperties`
+# should NOT be excluded as they contain compiler settings and other important
+# information for Eclipse / Flash Builder.

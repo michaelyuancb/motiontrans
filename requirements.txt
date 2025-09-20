@@ -1,0 +1,57 @@
+aiohttp==3.9.5
+aiohttp_cors==0.7.0
+aiortc==1.8.0
+av==11.0.0
+dex_retargeting==0.4.6
+dynamixel_sdk==3.7.31
+einops==0.8.0
+h5py==3.11.0
+ipython==8.12.3
+matplotlib==3.7.5
+opencv_contrib_python==4.10.0.82
+opencv_python==4.9.0.80
+packaging==24.1
+pandas==2.0.3
+params_proto==2.12.1
+pytransform3d==3.5.0
+PyYAML==6.0.1
+scikit_learn==1.3.2
+scipy==1.10.1
+seaborn==0.13.2
+setuptools==69.5.1
+tqdm==4.66.4
+vuer==0.0.32rc7
+wandb==0.17.3
+atomics
+pynput
+zarr==2.16
+imagecodecs
+dill 
+hydra-core==1.3.2
+numcodecs==0.15.1
+zerorpc
+pygame
+imageio
+imageio-ffmpeg
+keyboard
+lzfse
+pyliblzfse
+yapf
+xformers
+fpsample
+openai-clip
+plyfile
+openai
+x-transformers
+git+https://github.com/hassony2/chumpy.git
+git+https://github.com/hassony2/manopth.git
+
+# pip install peft uv open3d viser huggingface-hub diffusers
+# pip install pin==3.3.1
+# pip install numpy==1.23 --user
+
+# sudo apt-get install libgtk2.0-dev pkg-config
+# git clone https://github.com/huggingface/lerobot.git
+# cd lerobot
+# uv sync
+# conda install xformers -c xformers

@@ -1,0 +1,17 @@
+{
+    "human_me_put_mango_to_the_pink_bowl_while_avoiding_obstacle_by_lifting": {
+        "hand_shrink_coef": 1.75
+    },
+    "human_me_put_mango_to_pink_bowl_while_avoiding_obstacle_by_bypassing": {
+        "hand_shrink_coef": 1.75
+    },
+    "human_mix_put_banana_to_the_white_plate": {
+        "hand_shrink_coef": 1.25
+    },
+    "human_mix_put_toy_bear_to_the_black_box": {
+        "hand_shrink_coef": 1.5
+    },
+    "human_mix_close_silver_laptop": {
+        "speed_downsample_ratio": 2.5
+    }
+}

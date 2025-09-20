@@ -1,0 +1,22 @@
+defaults:
+  - _self_
+  - task: hra_instruction
+
+name: generate_text_feature
+_target_: diffusion_policy.workspace.gen_text_feature_workspace.GenerateTextFeatureWorkspace
+
+task_name: ${task.name}
+shape_meta: ${task.shape_meta}
+
+multi_run:
+  run_dir: data/outputs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${name}_${task_name}
+  wandb_name_base: ${now:%Y.%m.%d-%H.%M.%S}_${name}_${task_name}
+
+hydra:
+  job:
+    override_dirname: ${name}
+  run:
+    dir: data/outputs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${name}_${task_name}
+  sweep:
+    dir: data/outputs/${now:%Y.%m.%d}/${now:%H.%M.%S}_${name}_${task_name}
+    subdir: ${hydra.job.num}

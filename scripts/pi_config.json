@@ -1,0 +1,12 @@
+{
+    "config_file": "diffusion_policy/config/task/pi.yaml",
+    "img_obs_shape": [224, 224],
+    "camera_obs_horizon": 1,
+    "robot_obs_horizon": 2,      
+    "gripper_obs_horizon": 2,  
+    "obs_pose_rep": "relative",    
+    "action_pose_rep": "relative",
+    "obs_downsample_steps": 2,
+    "action_downsample_steps": 2,
+    "action_dim": 32
+}

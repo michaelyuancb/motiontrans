@@ -1,0 +1,41 @@
+{
+  "config_name": "franka_inspire_atv_cam_unimanual",
+  "cameras": [
+    {
+      "camera_type": "zed",
+      "device_id": "28579662",   # 25588934, 28579662
+      "capture_fps": 20, resolution: [1280, 720], 
+      "camera_obs_latency": 0.075,
+      "calib_cam_to_base": [
+          [0, 
+              [[-0.24160225236536262, -0.9008120969216672, 0.36078514061913997, 0.5220427313713883], [-0.970375347866877, 0.22435511563260213, -0.08964634036991842, 0.294635133038961], [-0.00018948409215202577, -0.3717557640831823, -0.9283305531795817, 0.6283072733081785], [0.0, 0.0, 0.0, 1.0]]
+          ]
+      ],   # to-robot-0 cam_to_base pose
+      "note": [0.31, 0.53]   # car-to-table, camera-to-fix
+      # we align all robot to the first camera, for other cameras, we use calib_cam_to_base to align them to the first camera
+    },
+  ],
+  "robots": [
+   {
+     "robot_type": "franka",
+     "robot_ip": "172.16.0.1",
+     "robot_obs_latency": 0.001, "robot_action_latency": 0.1,
+     "robot_frequency": 100,
+     "action_dim": 6,
+     "joints_init": [-1.1817,  0.5988,  1.3845, -2.4437, -0.3838,  2.3760,  0.5538],    # sleep style
+     "height_threshold": -1,
+     "sphere_radius": 0.1, "sphere_center": [0, -0.06, -0.185],
+   },
+  ],
+  "grippers": [
+    {
+      "gripper_type": "inspire",
+      "gripper_port": "/dev/ttyUSB0",
+      "gripper_obs_latency": 0.005, "gripper_action_latency": 0.062,
+      "gripper_frequency": 50,
+      "action_dim": 6, 
+    },
+  ],
+  "active_visions": [
+  ]
+}

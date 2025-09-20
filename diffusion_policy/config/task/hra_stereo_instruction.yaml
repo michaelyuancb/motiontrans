@@ -1,0 +1,107 @@
+name: hra_instruction
+
+camera_obs_latency: 0.0
+robot_obs_latency: 0.0
+gripper_obs_latency: 0.0
+dataset_frequeny: 0             # latency step is actually 0
+obs_down_sample_steps: 2
+action_down_sample_steps: 2
+low_dim_obs_horizon: 3
+img_obs_horizon: 1
+action_horizon: 16
+ignore_proprioception: False
+human_stereo_method: 'copy'     # copy or sensor
+
+shape_meta: &shape_meta
+  # acceptable types: rgb, low_dim
+  obs:
+    camera0_pose:
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon} # int
+      latency_steps: 0 
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: camera
+      ignore_by_policy: true
+      embedding_dim: -1
+    camera0_rgb:
+      shape: [3, 224, 224]
+      horizon: ${task.img_obs_horizon} # int
+      latency_steps: 0 # float
+      down_sample_steps: ${task.obs_down_sample_steps} # int
+      type: rgb
+      ignore_by_policy: False
+      embedding_dim: -1
+    camera0_rgb_right:
+      shape: [3, 224, 224]
+      horizon: ${task.img_obs_horizon} # int
+      latency_steps: 0 # float
+      down_sample_steps: ${task.obs_down_sample_steps} # int
+      type: rgb
+      ignore_by_policy: False
+      embedding_dim: -1
+    robot0_eef_pos:
+      shape: [3]
+      horizon: ${task.low_dim_obs_horizon} # int
+      latency_steps: ${eval:'(${task.camera_obs_latency} - ${task.robot_obs_latency}) * ${task.dataset_frequeny}'} # float
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      ignore_by_policy: ${task.ignore_proprioception}
+      embedding_dim: -1
+    robot0_eef_rot_axis_angle:
+      raw_shape: [3]
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon} # int
+      latency_steps: ${eval:'(${task.camera_obs_latency} - ${task.robot_obs_latency}) * ${task.dataset_frequeny}'} # float
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      rotation_rep: rotation_6d
+      ignore_by_policy: ${task.ignore_proprioception}
+      embedding_dim: -1
+    gripper0_gripper_pose:
+      shape: [6]
+      horizon: ${task.low_dim_obs_horizon} # int
+      latency_steps: ${eval:'(${task.camera_obs_latency} - ${task.gripper_obs_latency}) * ${task.dataset_frequeny}'} # float
+      down_sample_steps: ${task.obs_down_sample_steps} # float
+      type: low_dim
+      ignore_by_policy: ${task.ignore_proprioception}
+      embedding_dim: -1
+  action: 
+    # action should be list as: robot (6-dof) --> gripper (x-dof)
+    shape: [15]  # (3+6) + 6 = 15 for 1 franka and 1 inspirehand
+    horizon: ${task.action_horizon}
+    latency_steps: 0 # float
+    down_sample_steps: ${task.action_down_sample_steps} # int
+    rotation_rep: rotation_6d
+    robot_action_dim: [6]
+    gripper_action_dim: [6]
+
+task_name: &task_name hra
+dataset_path: example_demo_session/dataset.zarr
+human_dataset_path: null
+alpha: 1.0  # float
+pose_repr: &pose_repr
+  obs_pose_repr: relative # abs or relative
+  action_pose_repr: relative # abs or relative or delta
+use_instruction: True
+text_feature_cache_dir: ""
+
+dataset:
+  _target_: diffusion_policy.dataset.hra_dataset.HRADataset
+  shape_meta: *shape_meta
+  dataset_path: ${task.dataset_path}
+  human_dataset_path: ${task.human_dataset_path}
+  alpha: ${task.alpha}
+  cache_dir: null
+  pose_repr: *pose_repr
+  action_padding_ratio: 1.0
+  temporally_independent_normalization: False
+  repeat_frame_prob: 0.0
+  max_duration: null
+  seed: 42
+  val_ratio: 0.05
+  use_ratio: 1.0
+  dataset_idx: null
+  num_demo_use: -1
+  use_instruction: ${task.use_instruction}
+  text_feature_cache_dir: ${task.text_feature_cache_dir}
+  human_stereo_method: ${task.human_stereo_method}
