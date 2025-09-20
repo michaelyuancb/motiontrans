@@ -22,9 +22,8 @@ MotionTrans is the first framework that achieve explicit end-to-end human-to-rob
 
 ## TODO List
 
- - [ ] Update Paper and Bibtex to the final Arxiv version (before 10.1)
+ - [ ] Update Paper and Bibtex to the final Arxiv version (before 10.1), also add Arxiv link at the beginning of this README.
  - [ ] Release Full MotionTrans Dataset (before 10.8).
- - [ ] Release pretrained MotionTrans-DP checkpoints (before 10.8).
  - [ ] Release human data collection toolkit. (before 10.15).
 
 ## Installation
@@ -97,7 +96,7 @@ bash scripts/dp_base_cotraining.sh
 
 The checkpoints will be saved in `.ckpt` file. Allow with the checkpoints, a `.yaml` recording (the order of) all training tasks will also be saved, which will be used for later policy inference and robot control.
 
-**The cotrained checkpoints can be downloaded from [here]()**
+**The cotrained checkpoints can be downloaded from [here](https://drive.google.com/file/d/1I0Lcr9CWq93RhZh91539ybahVlAPLPak/view?usp=sharing).**
 
 For few-shot robot demonstrations finetuning (few-shot setting in the paper), run:
 ```
