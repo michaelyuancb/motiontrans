@@ -1,4 +1,3 @@
-*.mp4
 *.bin
 *.pyc
 *.zarr
@@ -7,7 +6,6 @@ password.txt
 checkpoints
 output_tmp
 *.zip
-*.jpg
 *.out
 tp/*
 output 
@@ -25,7 +23,6 @@ human_data/propainter_weights/*
 real/teleop/robot_img/*
 real/teleop/video_img/*
 human_data/human_data_inpaint/*
-*.png
 wandb/*
 outputs_finetune/*
 outputs/*
