@@ -2,7 +2,7 @@
 
 **[Chengbo Yuan](https://michaelyuancb.github.io/), [Rui Zhou](https://zhourui9813.github.io/)^, [Mengzhen Liu](https://scholar.google.com/citations?hl=zh-CN&user=AUVUNusAAAAJ)^, [Yingdong Hu](https://yingdong-hu.github.io/), [Shengjie Wang](https://shengjiewang-jason.github.io/), [Li Yi](), [Chuan Wen](https://alvinwen428.github.io/), [Shanghang Zhang](https://www.shanghangzhang.com/), [Yang Gao](https://yang-gao.weebly.com/)*.**
 
-**[[Project Website](https://motiontrans.github.io/)] [[Arxiv]()] [[Dataset](https://huggingface.co/datasets/michaelyuanqwq/motiontrans)] [[BibTex](#jump)]**
+**[[Project Website](https://motiontrans.github.io/)] [[Arxiv]()] [[Dataset](https://huggingface.co/datasets/michaelyuanqwq/motiontrans)] [[Pi0-VLA Code]()] [[BibTex](#jump)]**
 
 ^ Indicates equal contribution. * Corresponding author.
 
@@ -22,7 +22,7 @@ MotionTrans is the first framework that achieve explicit end-to-end human-to-rob
 
 ## TODO List
 
- - [ ] Update Paper and Bibtex to the final Arxiv version (before 10.1).
+ - [ ] Update Paper and Bibtex to the final Arxiv version (before 10.1)
  - [ ] Release Full MotionTrans Dataset (before 10.8).
  - [ ] Release pretrained MotionTrans-DP checkpoints (before 10.8).
  - [ ] Release human data collection toolkit. (before 10.15).
@@ -60,7 +60,7 @@ bash scripts_data/zarr_human_data_conversion_batch.sh
 bash scripts_data/zarr_robot_data_conversion_batch.sh
 ```
 
-This will process all tasks in the raw data folder and save the processed data in zarr format. For instruction augmentation (with OpenAI-GPT), check out `scripts/zarr_get_diverse_instruction.sh`. For data visualization, first run visualization-version processing scripts for a single task:
+This will process all tasks in the raw data folder and save the processed data in zarr format. For instruction augmentation (with [OpenAI-ChatGPT](https://chat.openai.com/)), check out `scripts/zarr_get_diverse_instruction.sh`. For data visualization, first run visualization-version processing scripts for a single task:
 
 ```
 bash scripts_data/zarr_human_data_conversion_vis.sh
@@ -73,7 +73,7 @@ And then run the visualization script (remember to update the `data_path` in the
 bash scripts_data/data_visualization.sh
 ```
 
-This will open a window to visualize the overlapped pointclouds for checking and a interactive [viser](https://viser.studio/main/) visualization for detailed inspection. The visualization results are shown below:
+This will open a window to visualize the overlapped pointclouds for checking and an interactive [viser](https://viser.studio/main/) visualization for detailed inspection. The visualization results are shown below:
 
 ![motiontrans visualization](./assets/media/data_visualization.png)
 
@@ -113,15 +113,15 @@ bash scripts/dp_infer.sh
 ```
 and follow the instruction in your terminal to control the robot execution. We note that the parameters and tricks for action-chunk-based inference affect the performance a lot. Please refer to the comments in `scripts/dp_infer.sh` for parameter details. You should especially pay attention to `robot_action_horizon`, `robot_steps_per_inference`, `gripper_action_horizon`, and `gripper_steps_per_inference`, which should be set carefully to get a balance between inference horizon and action jittering (mode discussion and potential improvement could refer to blog of [Real-Time Action Chunking](https://www.physicalintelligence.company/research/real_time_chunking)). Current parameter is optimized for our setup, and you may need to tune it for your own setup.
 
-To deploy trained **Pi0-VLA** on the robot, first start the policy client (refer to [MotionTrans-Pi0-VLA](https://github.com/michaelyuancb/motiontrans-pi0)), and then run:
+To deploy trained **Pi0-VLA** on the robot, first start the policy server (refer to [MotionTrans-Pi0-VLA](https://github.com/michaelyuancb/motiontrans-pi0)), and then run:
 ```
 bash scripts/pi0_infer.sh
 ```
-and follow the instruction in your terminal to control the robot execution. The scripts above start a server to communicate with the policy client, and then control the robot execution. More details could refer to [official Pi0-VLA repository](https://github.com/Physical-Intelligence/openpi).
+and follow the instruction in your terminal to control the robot execution. The scripts above start a client to communicate with the policy server, and then control the robot execution. More details could refer to [official Pi0-VLA repository](https://github.com/Physical-Intelligence/openpi).
 
 ## Acknowledgment
 
-This repository is based on the code from [Data-Scaling-Laws](https://github.com/Fanqi-Lin/Data-Scaling-Laws), [UMI](https://github.com/real-stanford/universal_manipulation_interface), [Open-Television](https://github.com/OpenTeleVision/TeleVision), [ARCap](https://github.com/Ericcsr/ARCap), [OpenPi](https://github.com/Physical-Intelligence/openpi), [Viser](https://github.com/nerfstudio-project/viser), [RoboEngine](https://github.com/michaelyuancb/roboengine), [EgoHOI](https://github.com/michaelyuancb/ego_hoi_model), [DROID](https://github.com/droid-dataset/droid) and [Pinocchio](https://github.com/stack-of-tasks/pinocchio). We sincerely appreciate their contribution to the open-source community, which have significantly supported this project. We also sincerely thank our AI-collaborators [ChatGPT](https://openai.com/chatgpt), [Kimi](https://www.kimi.com/) and [Github Copilot](https://github.com/features/copilot) !!
+This repository is based on the code from [Data-Scaling-Laws](https://github.com/Fanqi-Lin/Data-Scaling-Laws), [UMI](https://github.com/real-stanford/universal_manipulation_interface), [Open-Television](https://github.com/OpenTeleVision/TeleVision), [ARCap](https://github.com/Ericcsr/ARCap), [OpenPi](https://github.com/Physical-Intelligence/openpi), [Viser](https://github.com/nerfstudio-project/viser), [RoboEngine](https://github.com/michaelyuancb/roboengine), [OneTwoVLA](hhttps://github.com/Fanqi-Lin/OneTwoVLA), [EgoHOI](https://github.com/michaelyuancb/ego_hoi_model), [DROID](https://github.com/droid-dataset/droid) and [Pinocchio](https://github.com/stack-of-tasks/pinocchio). We sincerely appreciate their contribution to the open-source community, which have significantly supported this project. We also sincerely thank our AI-collaborators [ChatGPT](https://openai.com/chatgpt), [Kimi](https://www.kimi.com/) and [Github Copilot](https://github.com/features/copilot) !!
 
 ## Citation
 
