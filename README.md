@@ -22,8 +22,6 @@ MotionTrans is the first framework that achieve explicit end-to-end human-to-rob
 
 ## TODO List
 
- - [ ] Update Paper and Bibtex to the final Arxiv version.
- - [ ] Release Full MotionTrans Dataset (before 10.8).
  - [ ] Release human data collection toolkit. (before 10.15).
 
 ## Installation
@@ -126,9 +124,10 @@ This repository is based on the code from [Data-Scaling-Laws](https://github.com
 
 If you find this repository useful, please kindly acknowledge our work <span id="jump">:</span>
 ```tex
-@inproceedings{yuanmotiontrans,
+@article{yuan2025motiontrans,
   title={MotionTrans: Human VR Data Enable Motion-Level Learning for Robotic Manipulation Policies},
-  author={Yuan, Chengbo and Zhou, Rui and Liu, Mengzhen and Hu, Yingdong and Wang, Shengjie and Yi, Li and Zhang, Shanghang and Wen, Chuan and Gao, Yang},
-  booktitle={Human to Robot: Workshop on Sensorizing, Modeling, and Learning from Humans}
+  author={Yuan, Chengbo and Zhou, Rui and Liu, Mengzhen and Hu, Yingdong and Wang, Shengjie and Yi, Li and Wen, Chuan and Zhang, Shanghang and Gao, Yang},
+  journal={arXiv preprint arXiv:2509.17759},
+  year={2025}
 }
 ```
