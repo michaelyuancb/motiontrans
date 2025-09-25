@@ -20,10 +20,6 @@ MotionTrans is the first framework that achieve explicit end-to-end human-to-rob
  - (7) Checkpoints (Weights) of cotrained policy.
  - (8) Policy inference and deployment (on robot).
 
-## TODO List
-
- - [ ] Release human data collection toolkit. (before 10.15).
-
 ## Installation
 
 ```
