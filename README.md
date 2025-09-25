@@ -108,7 +108,7 @@ To deploy trained **Diffusion Policy (DP)** on the robot, run:
 ```
 bash scripts/dp_infer.sh
 ```
-and follow the instruction in your terminal to control the robot execution. We note that the parameters and tricks for action-chunk-based inference affect the performance a lot. Please refer to the comments in `scripts/dp_infer.sh` for parameter details. You should especially pay attention to `robot_action_horizon`, `robot_steps_per_inference`, `gripper_action_horizon`, and `gripper_steps_per_inference`, which should be set carefully to get a balance between inference horizon and action jittering (mode discussion and potential improvement could refer to blog of [Real-Time Action Chunking](https://www.physicalintelligence.company/research/real_time_chunking)). Current parameter is optimized for our setup, and you may need to tune it for your own setup.
+and follow the instruction in your terminal to control the robot execution. We note that the parameters and tricks for action-chunk-based inference affect the performance a lot. Please refer to the comments in `scripts/dp_infer.sh` for parameter details. You should especially pay attention to `robot_action_horizon`, `robot_steps_per_inference`, `gripper_action_horizon`, and `gripper_steps_per_inference`, which should be set carefully to get a balance between inference horizon and action jittering (mode discussion and potential improvement could refer to blog of [Real-Time Action Chunking](https://www.physicalintelligence.company/research/real_time_chunking)).
 
 To deploy trained **Pi0-VLA** on the robot, first start the policy server (refer to [MotionTrans-Pi0-VLA](https://github.com/michaelyuancb/motiontrans-pi0)), and then run:
 ```
